@@ -31,14 +31,10 @@ Crawler.crawl = function(options) {
   });
 
   var phantomScript = SSR.render('crawlTemplate', options);
-  $log.debug(phantomScript);
   var result = execFileSync('/bin/bash', ['-c', ("exec phantomjs /dev/stdin <<'END'\n" + phantomScript + "\nEND\n")], {
     timeout: requestTimeoutMs,
     maxBuffer: MAX_BUFFER
   });
-
-  $log.debug(result);
-
   return JSON.parse(result || '{}');
 };
 
