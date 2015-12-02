@@ -1,6 +1,6 @@
 Package.describe({
   name: 'flynn:crawler',
-  version: '0.0.4',
+  version: '0.0.5',
   // Brief, one-line summary of the package.
   summary: 'crawl is very simple',
   // URL to the Git repository containing the source code for this package.
@@ -12,8 +12,8 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.export('Crawler');
-  api.versionsFrom('1.1.0.3');
-  api.use('meteorhacks:ssr@2.1.2', 'server');
+  api.versionsFrom('METEOR@1.2');
+  api.use('meteorhacks:ssr@2.2.0', 'server');
   api.addFiles('crawler.js', 'server');
   api.addAssets('template.js.tpl', 'server');
 });
